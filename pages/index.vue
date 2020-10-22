@@ -50,11 +50,38 @@ export default defineComponent({
       title: 'index.vueでtitleをつけました。'
     }
   },
+  // key(route) {
+  //   console.debug('key route: ', route)
+  //   return route
+  // },
+  layout(context) {
+    console.debug('lauout context: ', context)
+    return 'blog'
+  },
+  loading: false, // デフォルトはtrue
+  middleware: ['authentication', 'foo'], // 名前付きmiddlewareを使う場合. なしでもいける. 複数あるときは配列で使う
+  scrollToTop: true,
+  transition: {
+    type: 'transition',
+    name: 'test',
+    mode: '',
+    enterClass: 'foo',
+    leaveClass: 'bar',
+    beforeEnter(el) {
+      console.debug('afterLeave', el)
+    }
+  },
+  validate({ params }) {
+    // return /^\d+$/.test(params.id)
+    console.debug('validate')
+    return true
+  },
 
 
-  setup(context, emit){
+
+  setup(props, context ){
+    console.debug('setup props: ', props) 
     console.debug('setup context: ', context)
-    console.debug('emit: ', emit) 
     
     
     return {}
