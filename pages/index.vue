@@ -1,11 +1,17 @@
 <template>
-  <div class="container">
+  <div
+    class="container"
+  >
     <div>
       <Logo />
-      <h1 class="title">
-        sample-app
+      <h1
+        class="title"
+      >
+        sample-apps
       </h1>
-      <div class="links">
+      <div
+        class="links"
+      >
         <a
           href="https://nuxtjs.org/"
           target="_blank"
@@ -30,7 +36,9 @@
 <script lang="ts">
 import Vue from 'vue'
 
-export default Vue.extend({})
+export default Vue.extend(
+  {}
+)
 </script>
 
 <style>
@@ -44,8 +52,7 @@ export default Vue.extend({})
 }
 
 .title {
-  font-family:
-    'Quicksand',
+  font-family: 'Quicksand',
     'Source Sans Pro',
     -apple-system,
     BlinkMacSystemFont,
