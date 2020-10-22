@@ -11,13 +11,16 @@ export default {
     meta: [
       { charset: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { hid: "description", name: "description", content: "" }
+      { hid: "description", name: "description", content: "this is my sample app!" }
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
   },
 
   // Global CSS (https://go.nuxtjs.”dev/config-css)
-  css: [],
+  css: [
+    '@/assets/variables/scss'
+  ],
+  dev: process.env.NODE_ENV !== 'production',
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [],
@@ -26,13 +29,21 @@ export default {
   components: true,
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
+  // Vuetify追加
   buildModules: [
     // https://go.nuxtjs.dev/typescript
-    "@nuxt/typescript-build"
+    "@nuxt/typescript-build",
+    "nuxtjs/vuetify"
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
-  modules: [],
+  //  '@nuxtjs/google-analytics'を追加
+  modules: [
+    '@nuxtjs/google-analytics'
+  ],
+  googleAnalytics: {
+    id: 'UA-12345-0' //自身のアナリティクスコード
+  },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {}
