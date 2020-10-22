@@ -18,7 +18,7 @@ export default {
 
   // Global CSS (https://go.nuxtjs.”dev/config-css)
   css: [
-    '@/assets/variables/scss'
+    // '@/assets/variables/scss'
   ],
   dev: process.env.NODE_ENV !== 'production',
 
@@ -32,14 +32,15 @@ export default {
   // Vuetify追加
   buildModules: [
     // https://go.nuxtjs.dev/typescript
-    "@nuxt/typescript-build",
-    "nuxtjs/vuetify"
+    "@nuxt/typescript-build"
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   //  '@nuxtjs/google-analytics'を追加
   modules: [
-    '@nuxtjs/google-analytics'
+    '@nuxtjs/vuetify',
+    '@nuxtjs/google-analytics',
+    '@nuxtjs/composition-api'
   ],
   googleAnalytics: {
     id: 'UA-12345-0' //自身のアナリティクスコード

@@ -34,11 +34,32 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { defineComponent, ref } from '@nuxtjs/composition-api'
 
-export default Vue.extend(
-  {}
-)
+export default defineComponent({
+  name: 'index',
+
+  asyncData(context) {
+    console.debug('asyncData context:', context)
+  },
+  fetch(context) {
+    console.debug('fetch: ', context)
+  },
+  head() {
+    return {
+      title: 'index.vueでtitleをつけました。'
+    }
+  },
+
+
+  setup(context, emit){
+    console.debug('setup context: ', context)
+    console.debug('emit: ', emit) 
+    
+    
+    return {}
+  }
+})
 </script>
 
 <style>
