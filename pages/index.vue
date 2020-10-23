@@ -35,6 +35,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from '@nuxtjs/composition-api'
+import VerEx from 'verbal-expressions'
 
 export default defineComponent({
   name: 'index',
@@ -80,11 +81,23 @@ export default defineComponent({
 
 
   setup(props, context ){
+    const regExp = VerEx()
+    .startOfLine()
+    .then('http')
+    .maybe('s')
+    .then('://')
+    .maybe('www.')
+    .anythingBut(' ')
+    .endOfLine()
+    
+    console.debug('regExp')
     console.debug('setup props: ', props) 
     console.debug('setup context: ', context)
     
     
-    return {}
+    return {
+      regExp
+    }
   }
 })
 </script>

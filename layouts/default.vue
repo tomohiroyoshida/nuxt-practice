@@ -1,6 +1,8 @@
 <template>
   <div>
     <Nuxt />
+    <div v-if="$nuxt.isOffline">オフラインです</div>
+    <div v-if="$nuxt.isOnline">オンラインです</div>
   </div>
 </template>
 

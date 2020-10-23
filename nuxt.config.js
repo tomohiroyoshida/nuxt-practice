@@ -29,7 +29,6 @@ export default {
   components: true,
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
-  // Vuetify追加
   buildModules: [
     // https://go.nuxtjs.dev/typescript
     "@nuxt/typescript-build"
@@ -41,6 +40,7 @@ export default {
     '@nuxtjs/vuetify',
     '@nuxtjs/google-analytics',
     '@nuxtjs/composition-api'
+
   ],
   googleAnalytics: {
     id: 'UA-12345-0' //自身のアナリティクスコード
