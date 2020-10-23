@@ -50,10 +50,10 @@ export default defineComponent({
       title: 'index.vueでtitleをつけました。'
     }
   },
-  // key(route) {
-  //   console.debug('key route: ', route)
-  //   return route
-  // },
+  key(route) {
+    console.debug('key route: ', route)
+    return route.fullPath
+  },
   layout(context) {
     console.debug('lauout context: ', context)
     return 'blog'
