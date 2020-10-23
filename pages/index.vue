@@ -1,17 +1,9 @@
 <template>
-  <div
-    class="container"
-  >
+  <div class="container">
     <div>
       <Logo />
-      <h1
-        class="title"
-      >
-        sample-apps
-      </h1>
-      <div
-        class="links"
-      >
+      <h1 class="title">Hello world!</h1>
+      <div class="links">
         <a
           href="https://nuxtjs.org/"
           target="_blank"
@@ -34,23 +26,14 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from '@nuxtjs/composition-api'
+import {
+  defineComponent,
+  ref,
+} from '@nuxtjs/composition-api'
 import VerEx from 'verbal-expressions'
 
 export default defineComponent({
-  name: 'index',
-
-  asyncData(context) {
-    console.debug('asyncData context:', context)
-  },
-  fetch(context) {
-    console.debug('fetch: ', context)
-  },
-  head() {
-    return {
-      title: 'index.vueでtitleをつけました。'
-    }
-  },
+  name: 'Index',
   key(route) {
     console.debug('key route: ', route)
     return route.fullPath
@@ -58,9 +41,13 @@ export default defineComponent({
   layout(context) {
     console.debug('lauout context: ', context)
     return 'blog'
-  },
-  loading: false, // デフォルトはtrue
-  middleware: ['authentication', 'foo'], // 名前付きmiddlewareを使う場合. なしでもいける. 複数あるときは配列で使う
+  }, // デフォルトはtrue
+  middleware: ['authentication', 'foo'],
+  validate({ params }) {
+    // return /^\d+$/.test(params.id)
+    console.debug('validate')
+    return true
+  }, // 名前付きmiddlewareを使う場合. なしでもいける. 複数あるときは配列で使う
   scrollToTop: true,
   transition: {
     type: 'transition',
@@ -70,35 +57,30 @@ export default defineComponent({
     leaveClass: 'bar',
     beforeEnter(el) {
       console.debug('afterLeave', el)
-    }
+    },
   },
-  validate({ params }) {
-    // return /^\d+$/.test(params.id)
-    console.debug('validate')
-    return true
-  },
+  loading: false,
 
-
-
-  setup(props, context ){
-    const regExp = VerEx()
-    .startOfLine()
-    .then('http')
-    .maybe('s')
-    .then('://')
-    .maybe('www.')
-    .anythingBut(' ')
-    .endOfLine()
-    
+  setup(props, context) {
     console.debug('regExp')
-    console.debug('setup props: ', props) 
+    console.debug('setup props: ', props)
     console.debug('setup context: ', context)
-    
-    
+
+    context.root.$notification('foo')
+    return {}
+  },
+
+  asyncData(context) {
+    console.debug('asyncData context:', context)
+  },
+  fetch(context) {
+    console.debug('fetch: ', context)
+  },
+  head() {
     return {
-      regExp
+      title: 'index.vueでtitleをつけました。',
     }
-  }
+  },
 })
 </script>
 
@@ -113,15 +95,9 @@ export default defineComponent({
 }
 
 .title {
-  font-family: 'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
+  font-family: 'Quicksand', 'Source Sans Pro',
+    -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, sans-serif;
   display: block;
   font-weight: 300;
   font-size: 100px;

@@ -8,7 +8,13 @@
     "start": "nuxt-ts start",
     "generate": "nuxt-ts generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "lintfix": "eslint --fix --ext .js,.vue --ignore-path .gitignore ."
+    "lintfix": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
+    "test": "ava"
+  },
+  "ava": {
+    "files": [
+      "test/**/*"
+    ]
   },
   "dependencies": {
     "@nuxt/typescript-runtime": "^2.0.0",
@@ -17,7 +23,8 @@
     "axios": "^0.20.0",
     "core-js": "^3.6.5",
     "nuxt": "^2.14.6",
-    "verbal-expressions": "^1.0.2"
+    "verbal-expressions": "^1.0.2",
+    "vue-notifications": "^1.0.2"
   },
   "devDependencies": {
     "@nuxt/types": "^2.14.6",
